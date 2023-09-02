@@ -10,7 +10,7 @@ import org.springframework.hateoas.Link;
 
 import java.util.Optional;
 
-import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 
 
 public class HistoryDto {

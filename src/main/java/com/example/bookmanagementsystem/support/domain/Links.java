@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Getter
+
 public class Links extends RepresentationModel {
     @JsonIgnoreProperties({"media", "hreflang", "title", "type", "deprecation"})
     private List<Link> links = new ArrayList<>();
