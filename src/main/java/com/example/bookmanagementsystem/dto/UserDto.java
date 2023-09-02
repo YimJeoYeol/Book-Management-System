@@ -4,15 +4,18 @@ import com.example.bookmanagementsystem.domain.User;
 import com.example.bookmanagementsystem.support.domain.Level;
 import com.example.bookmanagementsystem.support.domain.Links;
 import com.example.bookmanagementsystem.support.dto.SelfDescription;
+import com.example.bookmanagementsystem.web.ApiUserController;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
-import org.springframework.hateoas.Link;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.validation.constraints.Size;
 
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
+import java.util.Objects;
+import java.util.Optional;
+
+import static org.springframework.hateoas.server.reactive.WebFluxLinkBuilder.linkTo;
 
 public class UserDto {
 
@@ -89,7 +92,7 @@ public class UserDto {
         this.links = links;
     }
 
-    public Link getLink(String rel) {
+    public Optional getLink(String rel) {
         return links.getLink(rel);
     }
 
@@ -113,8 +116,8 @@ public class UserDto {
 
         UserDto userDto = (UserDto) o;
 
-        if (userId != null ? !userId.equals(userDto.userId) : userDto.userId != null) return false;
-        return name != null ? name.equals(userDto.name) : userDto.name == null;
+        if (!Objects.equals(userId, userDto.userId)) return false;
+        return Objects.equals(name, userDto.name);
     }
 
     @Override

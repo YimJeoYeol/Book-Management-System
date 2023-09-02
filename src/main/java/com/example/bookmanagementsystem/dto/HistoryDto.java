@@ -1,11 +1,14 @@
 package com.example.bookmanagementsystem.dto;
+
 import com.example.bookmanagementsystem.support.domain.HistoryType;
 import com.example.bookmanagementsystem.support.domain.Links;
 import com.example.bookmanagementsystem.support.dto.SelfDescription;
+import com.example.bookmanagementsystem.web.ApiHistoryController;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
-import org.springframework.hateoas.Link;
 
+import java.util.Optional;
 
+import static org.springframework.hateoas.server.reactive.WebFluxLinkBuilder.linkTo;
 
 
 public class HistoryDto {
@@ -86,7 +89,7 @@ public class HistoryDto {
         return this;
     }
 
-    public Link getLink(String rel) {
+    public Optional getLink(String rel) {
         return links.getLink(rel);
     }
 

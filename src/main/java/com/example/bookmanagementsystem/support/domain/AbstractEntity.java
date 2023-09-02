@@ -28,7 +28,7 @@ public abstract class AbstractEntity {
         this.id = id;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 

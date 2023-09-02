@@ -1,29 +1,29 @@
 package com.example.bookmanagementsystem.support.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.springframework.hateoas.Link;
-import org.springframework.hateoas.RepresentationModel;
-
+import lombok.Getter;
+import org.springframework.hateoas.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Links extends RepresentationModel {
+    @Getter
     @JsonIgnoreProperties({"media", "hreflang", "title", "type", "deprecation"})
     private List<Link> links = new ArrayList<>();
 
-    public org.springframework.hateoas.Links getLinks() {
-        return (org.springframework.hateoas.Links) links;
-    }
+
 
 
     @Override
-    public Link getLink(String rel) {
-        return links.stream().filter(l -> l.getRel().equals(rel)).findFirst().orElse(null);
+    public Optional getLink(String rel) {
+        return links.stream().filter(l -> l.getRel().equals(rel)).findFirst();
     }
 
-    public void add(Link link) {
+    public RepresentationModel add(Link link) {
         links.add(link);
+        return null;
     }
 
     @Override
