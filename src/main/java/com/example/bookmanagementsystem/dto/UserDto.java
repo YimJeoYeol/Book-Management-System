@@ -8,6 +8,7 @@ import com.example.bookmanagementsystem.web.ApiUserController;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
+import org.springframework.hateoas.Link;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.validation.constraints.Size;
@@ -15,7 +16,8 @@ import javax.validation.constraints.Size;
 import java.util.Objects;
 import java.util.Optional;
 
-import static org.springframework.hateoas.server.reactive.WebFluxLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+
 
 public class UserDto {
 
@@ -37,7 +39,7 @@ public class UserDto {
     @JsonUnwrapped
     private Links links = new Links();
 
-    private String selfDescription = SelfDescription.USERS.getDocs();
+    private final String selfDescription = SelfDescription.USERS.getDocs();
 
     public UserDto() {
     }
@@ -53,6 +55,9 @@ public class UserDto {
         this.name = name;
         this.id = id;
         this.level = level;
+    }
+
+    public UserDto(String id, String userId, String name, Level level) {
     }
 
 
@@ -105,7 +110,7 @@ public class UserDto {
     }
 
     public UserDto addLink() {
-        links.add(linkTo(ApiUserController.class).slash(id).withSelfRel());
+        links.add((Iterable<Link>) linkTo(ApiUserController.class).slash(String.valueOf(id)).withSelfRel());
         return this;
     }
 
