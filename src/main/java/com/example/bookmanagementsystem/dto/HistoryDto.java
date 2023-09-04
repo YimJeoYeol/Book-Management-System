@@ -5,35 +5,25 @@ import com.example.bookmanagementsystem.support.domain.Links;
 import com.example.bookmanagementsystem.support.dto.SelfDescription;
 import com.example.bookmanagementsystem.web.ApiHistoryController;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
-import lombok.Getter;
 import org.springframework.hateoas.Link;
 
-import java.util.Optional;
-
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
-
 
 public class HistoryDto {
 
     private Long id;
 
-    @Getter
     private Long userId;
 
-    @Getter
     private Long bookId;
 
-    @Getter
     private String historyType;
 
-    @Getter
     private String createDate;
 
-    @Getter
     @JsonUnwrapped
     private Links links = new Links();
 
-    @Getter
     private String selfDescription = SelfDescription.HISTORIES.getDocs();
 
 
@@ -48,32 +38,56 @@ public class HistoryDto {
         this.createDate = createDate;
     }
 
+    public String getHistoryType() {
+        return historyType;
+    }
+
     public void setHistoryType(String historyType) {
         this.historyType = historyType;
+    }
+
+    public String getCreateDate() {
+        return createDate;
     }
 
     public void setCreateDate(String createDate) {
         this.createDate = createDate;
     }
 
+    public Long getUserId() {
+        return userId;
+    }
+
     public void setUserId(Long userId) {
         this.userId = userId;
+    }
+
+    public Long getBookId() {
+        return bookId;
     }
 
     public void setBookId(Long bookId) {
         this.bookId = bookId;
     }
 
+    public Links getLinks() {
+        return links;
+    }
+
     public void setLinks(Links links) {
         this.links = links;
     }
 
+    public String getSelfDescription() {
+        return selfDescription;
+    }
+
     public HistoryDto addLink() {
-        links.add((Iterable<Link>) linkTo(ApiHistoryController.class).slash(String.valueOf(id)).withSelfRel());
+        links.add(linkTo(ApiHistoryController.class).slash(id).withSelfRel());
         return this;
     }
 
-    public Optional getLink(String rel) {
+    public Link getLink(String rel) {
         return links.getLink(rel);
     }
 

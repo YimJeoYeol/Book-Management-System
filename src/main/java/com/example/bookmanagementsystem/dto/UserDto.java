@@ -13,11 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.validation.constraints.Size;
 
-import java.util.Objects;
-import java.util.Optional;
-
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
-
 
 public class UserDto {
 
@@ -39,7 +35,7 @@ public class UserDto {
     @JsonUnwrapped
     private Links links = new Links();
 
-    private final String selfDescription = SelfDescription.USERS.getDocs();
+    private String selfDescription = SelfDescription.USERS.getDocs();
 
     public UserDto() {
     }
@@ -55,9 +51,6 @@ public class UserDto {
         this.name = name;
         this.id = id;
         this.level = level;
-    }
-
-    public UserDto(String id, String userId, String name, Level level) {
     }
 
 
@@ -97,7 +90,7 @@ public class UserDto {
         this.links = links;
     }
 
-    public Optional getLink(String rel) {
+    public Link getLink(String rel) {
         return links.getLink(rel);
     }
 
@@ -110,7 +103,7 @@ public class UserDto {
     }
 
     public UserDto addLink() {
-        links.add((Iterable<Link>) linkTo(ApiUserController.class).slash(String.valueOf(id)).withSelfRel());
+        links.add(linkTo(ApiUserController.class).slash(id).withSelfRel());
         return this;
     }
 
@@ -121,8 +114,8 @@ public class UserDto {
 
         UserDto userDto = (UserDto) o;
 
-        if (!Objects.equals(userId, userDto.userId)) return false;
-        return Objects.equals(name, userDto.name);
+        if (userId != null ? !userId.equals(userDto.userId) : userDto.userId != null) return false;
+        return name != null ? name.equals(userDto.name) : userDto.name == null;
     }
 
     @Override
