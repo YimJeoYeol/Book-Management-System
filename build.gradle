@@ -31,6 +31,8 @@ dependencies {
     implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.11.5'
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '2.7.10'
+// https://mvnrepository.com/artifact/org.springframework.hateoas/spring-hateoas
+    implementation group: 'org.springframework.hateoas', name: 'spring-hateoas', version: '0.15.0.RELEASE'
 
 
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-hateoas

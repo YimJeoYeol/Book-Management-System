@@ -1,5 +1,4 @@
 package com.example.bookmanagementsystem.dto;
-
 import com.example.bookmanagementsystem.domain.User;
 import com.example.bookmanagementsystem.support.domain.Level;
 import com.example.bookmanagementsystem.support.domain.Links;
@@ -13,7 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.validation.constraints.Size;
 
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 
 public class UserDto {
 
@@ -46,7 +45,7 @@ public class UserDto {
         this.name = name;
     }
 
-    public UserDto(Long id, String userId,  String name, Level level) {
+    public UserDto(Long id, String userId, String name, Level level) {
         this.userId = userId;
         this.name = name;
         this.id = id;

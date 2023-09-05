@@ -1,1 +1,21 @@
-
+server:
+  servlet:
+    session:
+      tracking-modes: cookie
+  jpa:
+    database-platform: org.hibernate.dialect.MariaDB103Dialect  #JPA? ??? database? dialect ??
+    properties:
+      hibernate:
+        hibernate:
+        "[format_sql]": true            #SQL? ?? ?? ??
+        "[user_sql_comments]": true     #SQL?? ? ?? ??
+        "[highlight_sql]": true         #SQL? ??
+        "[hbm2ddl.auto]": update
+        #"[implicit_naming_strategy]": "org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy" -> ????? ???? ??? ?? ???? ??? ???
+    open-in-view: false
+    show-sql: true
+  datasource:
+    url: jdbc:mariadb://localhost:3306/boardstudy
+    username: root
+    password: 1234
+    driver-class-name: org.mariadb.jdbc.Driver

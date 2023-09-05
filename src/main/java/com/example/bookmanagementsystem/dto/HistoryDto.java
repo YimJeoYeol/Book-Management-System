@@ -1,5 +1,4 @@
 package com.example.bookmanagementsystem.dto;
-
 import com.example.bookmanagementsystem.support.domain.HistoryType;
 import com.example.bookmanagementsystem.support.domain.Links;
 import com.example.bookmanagementsystem.support.dto.SelfDescription;
@@ -7,7 +6,7 @@ import com.example.bookmanagementsystem.web.ApiHistoryController;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import org.springframework.hateoas.Link;
 
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 
 public class HistoryDto {
 

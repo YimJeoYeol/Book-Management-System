@@ -1,9 +1,8 @@
 package com.example.bookmanagementsystem.dto;
 
 import com.example.bookmanagementsystem.domain.History;
-import net.minidev.json.annotate.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
