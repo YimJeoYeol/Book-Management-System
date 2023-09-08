@@ -16,7 +16,7 @@
 
 ## URI
 ### Users API 
-[https://github.com/yimje/Book-Management-System/wiki/USERS-API](https://github.com/yimje/Book-Management-System/wiki/Users-API)
+
 
 메소드 | 경로 | 설명 | 
 |----- | ----------- | ------- | 
@@ -26,7 +26,6 @@
 
 
 ### Books API 
-[https://github.com/yimje/Book-Management-System/wiki/Books-API](https://github.com/yimje/Book-Management-System/wiki/Books-API)
 
 메소드 | 경로 | 설명 | 
 |----- | ----------- | ------- | 
@@ -41,7 +40,7 @@
 
 
 ### Histories API 
-[https://github.com/yimje/Book-Management-System/wiki/Histories-API](https://github.com/yimje/Book-Management-System/wiki/Histories-API)
+
 
 메소드 | 경로 | 설명 | 
 |----- | ----------- | ------- | 
@@ -56,15 +55,4 @@
 - Framework - Spring boot 2.7.10
 - Database - mariadb,(H2)
 
-## 실행 하기
-
-저장소를 git clone 또는 다운로드 후 
-
-1.터미널로 mvn clean package 후 target폴더에서(cd target) java -jar bookmanagement-0.0.1-SNAPSHOT.jar 실행시킵니다.
-(중지 시 CTRL + C)
-
-2.스프링부트로 프로젝트를 열고 BookmanagementApplication 을 실행시킵니다.
-
-(h2 database 사용 시 application.properties에 mysql설정 대신에 h2설정을 활성화 시킨 후 실행,
-http://localhost:8080/h2-console 해당주소에 접속해서 내용 확인.)
-
+#
