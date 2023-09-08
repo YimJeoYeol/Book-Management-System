@@ -53,7 +53,7 @@ https://github.com/yimje/Book-Management-System/wiki/Histories-API
 - OS - Windows 10
 - IDE - Intelli J
 - Language - Java 11
-- Framework - Spring boot 2.7.11
+- Framework - Spring boot 2.7.10
 - Database - mariadb,(H2)
 
 ## 실행 하기
